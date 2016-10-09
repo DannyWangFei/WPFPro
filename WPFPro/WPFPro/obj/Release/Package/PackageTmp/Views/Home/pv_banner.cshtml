@@ -1,0 +1,61 @@
+﻿<link href="../../Content/CSS/owl.carousel.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="../../Scripts/autolunbo/owl.carousel.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#owl-demo').owlCarousel({
+            items: 1,
+            navigation: true,
+            navigationText: ["上一个", "下一个"],
+            autoPlay: true,
+            stopOnHover: true
+        }).hover(function () {
+            $('.owl-buttons').show();
+        }, function () {
+            $('.owl-buttons').hide();
+        });
+    });
+</script>
+
+<div class="top-nav">
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
+        <h3>Menu</h3>
+        @Html.ActionLink("首页", "Index", "Home")
+        @Html.ActionLink("关于我们", "About", "Home")
+        @Html.ActionLink("产品", "Product", "Home")
+        @Html.ActionLink("联系我们", "Contactus", "Home")
+        <a href="typo.html">Typo</a>
+    </nav>
+    <div class="main buttonset">
+        <button id="showRightPush">
+            <img src="../../Content/themes/bodyImage/menu-icon.png" alt="" />
+        </button>
+    </div>
+    <script src="../../Scripts/classie.js"></script>
+    <script>
+        var menuRight = document.getElementById('cbp-spmenu-s2'),
+        showRightPush = document.getElementById('showRightPush'),
+        body = document.body;
+
+        showRightPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toleft');
+            classie.toggle(menuRight, 'cbp-spmenu-open');
+            disableOther('showRightPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showRightPush') {
+                classie.toggle(showRightPush, 'disabled');
+            }
+        }
+    </script>
+</div>
+<div class="banner" style="border: 0px solid black">
+    <!--header-->
+    <div class="header">
+        <div id="owl-demo" class="owl-carousel">
+            <img alt="banner" src="../../Content/themes/bodyImage/citybanner.jpg" />
+            <img alt="banner" src="../../Content/themes/bodyImage/banner.jpg" />
+        </div>
+    </div>
+</div>

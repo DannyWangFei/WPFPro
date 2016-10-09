@@ -1,0 +1,150 @@
+﻿@model WPFPro.Models.RegisterModel
+@{
+    ViewBag.Title = "注册";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">    var i = 0;</script>
+<link href="../../Content/CSS/monkey.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+        //----------------------验证码看不清------------------------
+        $("#captcha").click(function () {
+            $("#captcha").attr("src", '@Url.Content("/Account/CaptchaVerifyCode")/' + i);
+            i++;
+        });
+        //----------------------验证码看不清------------------------
+
+        //----------------------注册前验证用户是否注册过------------------------
+
+        $("#UserName").blur(function () {
+            var url = "/Account/checkAjaxAccount";
+            var username = $("#UserName").val().trim();
+            if (username == "") {
+                $("#UsernameErrorinfo").text("请填写账号");
+                $("#UsernameErrorinfo").show();
+                return false;
+            } else { $("#UsernameErrorinfo").hide(); }
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: { "accName": username },
+                dataType: "json",
+                success: function (data) {
+                    debugger;
+                    if (!data.IsSuccess) {
+                        $("#UsernameErrorinfo").text("用户名重复");
+                        $("#UsernameErrorinfo").show();
+                        return false;
+                    } else {
+                        $("#UsernameErrorinfo").hide();
+                        return true;
+                    }
+                }
+            });
+        });
+        //----------------------注册前验证用户是否注册过------------------------
+
+        //----------------------密码------------------------
+        $("#Password").blur(function () {
+            var pwd = $("#Password").val().trim();
+            if (pwd == "") {
+                $("#pwdError").show(); return false;
+            } else { $("#pwdError").hide(); return true; }
+        });
+        $("#ConfirmPassword").blur(function () {
+            var pwd = $("#ConfirmPassword").val().trim();
+            if (pwd == "") {
+                $("#conpwdError").show(); return false;
+            } else { $("#conpwdError").hide(); return true; }
+        });
+        //----------------------密码------------------------
+    });
+</script>
+
+
+@using (Html.BeginForm())
+{    
+    @Html.ValidationSummary(true, "账户创建失败，请重新注册！")
+    <div>
+        <div class="register-left">
+            <div class="page" style="width: 340px; height: 200px; margin: 45px auto">
+                注册
+                <div class="editor-field">
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "inputcss", placeholder = "邮箱" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    <span style="color: Red">*</span>&nbsp;<span id="UsernameErrorinfo" class="validateCSS"></span>
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.Password, new { @class = "inputcss", placeholder = "密码" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                    <span style="color: Red">*</span>&nbsp;<span id="pwdError" class="validateCSS">请填写密码</span>
+                </div>
+                <div class="editor-field">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "inputcss", placeholder = "确认密码" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    <span style="color: Red">*</span>&nbsp;<span id="conpwdError" class="validateCSS">请填写确认密码</span>
+                </div>
+                <div class="editor-field">
+                    <div class="veriyCode">
+                        @Html.TextBoxFor(m => m.veryCode, new { @class = "veryCodeinput", placeholder = "验证码" })
+                    </div>
+                    <div>
+                        <img alt="验证码" class="validateCode" src="@Url.Content("/Account/CaptchaVerifyCode")" id="captcha" />
+                    </div>
+                </div>
+                <div style="clear: both; margin-top: 10px;">
+                    <input type="submit" id="btnRegister" class="btn btn-default" value="注 册" />
+                </div>
+            </div>
+        </div>
+        <div class="register-right">
+            <div class='kangkang'>
+                <div class='head'>
+                    <div class='head1'></div>
+                    <div class='shadow'></div>
+                    <div class='hair'></div>
+                    <div class='face'>
+                        <div class='yellow'></div>
+                        <div class='green'></div>
+                        <div class='eyes red'>
+                            <div class='nose1'></div>
+                            <div class='nose2'></div>
+                            <div class="left-eye">
+                                <div class="eye"></div>
+                            </div>
+                            <div class='right-eye'>
+                                <div class="eye"></div>
+                            </div>
+                        </div>
+                        <div class='mouth'>
+                            <svg id="mouth" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 237.36 176">
+                                <defs>
+                                    <style>
+                                        .cls-1
+                                        {
+                                            fill: none;
+                                            stroke: #231815;
+                                            stroke-miterlimit: 10;
+                                            stroke-width: 25px;
+                                        }
+                                    </style>
+                                </defs>
+                                <title>mouth</title>
+                                <line class="cls-1" x1="118.84" y1="163.5" x2="118.84" />
+                                <path class="cls-1" d="M285.64,370c0,48,75.53,59.5,106.42,59.5,27.46,0,107.34-13,105.92-56.89" transform="translate(-273.14 -266)" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class='left-ear'></div>
+                    <div class='right-ear'></div>
+                    <div class='left-ball '>
+                        <a href='#' class='hvr-wobble-vertical'></a>
+                    </div>
+                    <div class='right-ball'></div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>    
+}

@@ -1,0 +1,307 @@
+﻿.kangkang
+{
+    display: block;
+    width: 280px;
+    height: 280px;
+    position: relative;
+    left: calc( 76% - 200px);
+    padding-top:5px;
+}
+
+.head
+{
+    position: absolute;
+    width: 80%;
+    height: 70%;
+    background: #564637;
+    border-radius: 50%;
+    top: 10%;
+    left: 10%;
+}
+
+.head1
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #564637;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.hair
+{
+    position: absolute;
+    height: 60%;
+    width: 16%;
+    border-radius: 50%;
+    background: black;
+    left: 42%;
+    top: -5%;
+    z-index: 15;
+    background: #40220F;
+    overflow: hidden;
+}
+
+    .hair::after
+    {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background: #371F11;
+        left: 50%;
+        top: 0%;
+        z-index: 16;
+    }
+
+.face
+{
+    position: absolute;
+    width: 80%;
+    height: 75%;
+    background: #564637;
+    border-radius: 50%;
+    top: 20%;
+    left: 10%;
+    overflow: hidden;
+}
+
+.yellow
+{
+    position: absolute;
+    width: 50%;
+    height: 120%;
+    background: #EBB900;
+    border-radius: 15rem 0 0 20rem;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+}
+
+.green
+{
+    position: absolute;
+    width: 50%;
+    height: 120%;
+    background: #65B97E;
+    border-radius: 0 15rem 20rem 0;
+    z-index: 3;
+    top: 0%;
+    left: 50%;
+}
+
+.eyes
+{
+    position: absolute;
+    width: 60%;
+    height: 40%;
+    z-index: 9;
+    left: 20%;
+    top: 35%;
+}
+
+    .eyes:after
+    {
+        content: '';
+        position: absolute;
+        height: 80%;
+        width: 12%;
+        border-radius: 50% 50% 50% 50%;
+        background: black;
+        left: 44%;
+        top: 27%;
+    }
+
+.nose1
+{
+    position: absolute;
+    height: 20%;
+    width: 12%;
+    border-radius: 50%;
+    background: black;
+    left: 39%;
+    top: 65%;
+    z-index: 11;
+}
+
+.nose2
+{
+    position: absolute;
+    height: 20%;
+    width: 12%;
+    border-radius: 50%;
+    background: black;
+    left: 49%;
+    top: 65%;
+    z-index: 11;
+}
+
+.left-eye
+{
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background: #CC1335;
+    border-radius: 50% 50% 50% 50%;
+    left: -5%;
+}
+
+.right-eye
+{
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    background: #98172E;
+    border-radius: 50% 50% 50%;
+    50%;
+    left: 45%;
+}
+
+.eye
+{
+    position: absolute;
+    height: 45%;
+    width: 45%;
+    background: black;
+    border-radius: 50% 50% 50%;
+    50%;
+    left: 27%;
+    top: 27%;
+}
+
+    .eye:after
+    {
+        content: '';
+        position: absolute;
+        height: 15%;
+        width: 15%;
+        background: white;
+        border-radius: 50% 50% 50%;
+        50%;
+        left: 27%;
+        top: 27%;
+        animation: move 10s ease-in infinite;
+    }
+
+.mouth
+{
+    position: absolute;
+    height: 27%;
+    width: 27%;
+    background: #FFD0D6;
+    border-radius: 50% 50% 50%;
+    50%;
+    left: 36.5%;
+    top: 69%;
+    z-index: 10;
+    overflow: hidden;
+}
+
+    .mouth::after
+    {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        background: #371F11;
+        left: 50%;
+        top: 0%;
+        z-index: 16;
+        opacity: 0.3;
+    }
+
+#mouth
+{
+    position: absolute;
+    width: 80%;
+    height: 60%;
+    left: 10%;
+    top:;
+}
+
+.left-ear
+{
+    position: absolute;
+    width: 25%;
+    background: #8C7764;
+    height: 25%;
+    border-radius: 50% 0 0 50%;
+    left: -8%;
+    top: 62%;
+    z-index: 0;
+}
+
+.right-ear
+{
+    position: absolute;
+    width: 25%;
+    background: #6C5A4C;
+    height: 25%;
+    border-radius: 0 50% 50% 0;
+    left: 83%;
+    top: 62%;
+    z-index: 0;
+}
+
+.right-ball
+{
+    box-sizing: border-box;
+    position: absolute;
+    width: 25%;
+    background: #47382D;
+    height: 28%;
+    border-radius: 50%;
+    left: 65%;
+    top: 75%;
+    z-index: 10;
+    border: 3px solid #4E3C32;
+}
+
+.left-ball
+{
+    box-sizing: border-box;
+    position: absolute;
+    width: 25%;
+    background: #564637;
+    height: 28%;
+    border-radius: 50%;
+    left: 10%;
+    top: 75%;
+    z-index: 10;
+    border: 3px solid #604C3F;
+}
+
+@keyframes move
+{
+    0%, 20%
+    {
+        margin-left: 0;
+        transform: rotateX(0);
+    }
+
+    21%
+    {
+        transform: rotateX(90deg);
+    }
+
+    22%
+    {
+        transform: rotateX(0);
+    }
+
+    40%
+    {
+        margin-left: 0;
+    }
+
+    42%, 98%
+    {
+        margin-left: 25%;
+    }
+
+    100%
+    {
+        margin-left: none;
+    }
+}

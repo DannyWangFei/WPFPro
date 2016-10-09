@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = ViewBag.pageTitle;
+}
+<h2>@ViewBag.Content</h2>
+
+<div>
+    <span id="autoSecond" style="color:#2006E6; font-weight:bold">5</span>秒后跳转到登录页(如果如法自动跳转请点击登录)
+</div>
+<script type="text/javascript" language="javascript">
+    var time = 5;
+    var setInt = setInterval(autoDirec, 1000);
+    function autoDirec() {
+        $("#autoSecond").text(time);
+        time--;
+        if (time == 0) {
+            clearInterval(setInt);
+            location.href = "/Account/LogOn";
+        }
+    }
+</script>

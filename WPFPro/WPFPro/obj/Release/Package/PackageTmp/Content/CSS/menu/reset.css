@@ -1,0 +1,27 @@
+body,button,input,select,textarea { font-family: tahoma,Arial,"Microsoft YaHei",SimSun; font-size: 12px; line-height: 1.5em;color:#222}
+fieldset,img{border:0;}
+ol,ul,li{list-style:none;}
+a{text-decoration:none; color:#222;}
+a:hover{color:#052299;}
+a:active{color:#052299;}
+
+/*= Çå³ý¸¡¶¯=*/
+.clearfix:after { content: "."; display: block; height: 0;  clear: both; visibility: hidden;}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+/* End hide from IE-mac */
+*+html .clearfix {min-height: 1%;}
+*html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache",false,true)}
+(this))}
+
+/* ×óÓÒ¸¡¶¯ */
+.fl{ float:left;}
+.fr{ float:right}
+
+
+
+
+
+
+
+

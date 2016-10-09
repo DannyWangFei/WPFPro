@@ -1,0 +1,45 @@
+﻿<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/menu.css" />
+<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/reset.css" />
+<script type="text/javascript" src="../../Scripts/menu/jquery.movebg.js"></script>
+
+<span class="Homelogo">
+    <a href="/Home/Index">
+        <img alt="logo" src="../../Content/themes/Logo/bo16x16.png" />&nbsp;彩迪电器有限公司</a>
+</span>
+<div class="wraper">
+    <div class="nav">
+        <ul>
+            <li class="nav-item">
+                <a href="/Home/Index" target="_self">网站首页</a>                
+            </li>
+            <li class="nav-item"><a href="/Home/About" target="_self">关于我们</a></li>
+            <li class="nav-item">
+                <a href="/Home/Product" target="_self">产品</a>
+                <ul>
+                    <li><a href="#">电热毯</a></li>
+                    <li><a href="#">四件套</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/Home/Contactus" target="_self">联系我们</a></li>
+        </ul>
+        <!--移动的滑动-->
+        <div class="move-bg"></div>
+        <!--移动的滑动 end-->
+    </div>
+</div>
+@if (Request.IsAuthenticated)
+{    
+    <text>欢迎 <b>@Context.User.Identity.Name</b>!
+    <span class="help nomg hov"><a href="/Account/LogOff" rel="nofollow">安全退出</a></span>
+    </text>
+}
+else
+{    
+    <span class="help nomg hov"><a href="/Account/Register" rel="nofollow">注册</a></span>
+    <span class="help nomg hov"><a href="/Account/LogOn" rel="nofollow">登录</a></span> 
+}
+<script type="text/ecmascript">
+    $(function () {
+        $(".nav").movebg({ width: 120/*滑块的大小*/, extra: 10/*额外反弹的距离*/, speed: 30/*滑块移动的速度*/, rebound_speed: 30/*滑块反弹的速度*/ });        
+    })
+</script>

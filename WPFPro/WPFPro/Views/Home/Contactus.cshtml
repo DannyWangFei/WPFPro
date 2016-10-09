@@ -1,0 +1,141 @@
+@model WPFPro.Models.Contactus
+@{
+    ViewBag.Title = "博阳家纺我喜欢！";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //-------------------------------------
+        $("#contactName").focus(function () {
+            this.value = '';
+        });
+        $("#contactName").blur(function () {
+            if (this.value == '') { this.value = '姓名'; }
+        });
+
+        $("#contactEmail").focus(function () {
+            this.value = '';
+        });
+        $("#contactEmail").blur(function () {
+            if (this.value == '') { this.value = '邮箱(Email)'; }
+        });
+
+        $("#mobilephone").focus(function () {
+            this.value = '';
+        });
+        $("#mobilephone").blur(function () {
+            if (this.value == '') { this.value = '电话'; }
+        });
+
+        $("#note").focus(function () {
+            this.value = '';
+        });
+        $("#note").blur(function () {
+            if (this.value == '') { this.value = '您有什么想说......'; }
+        });
+        //-----------------提交----------------
+        $("#btnsubmit").click(function () {
+            debugger;
+            var contactEmail = $("#contactEmail").val().trim();
+            var contactName = $("#contactName").val().trim();
+            var mobilephone = $("#mobilephone").val().trim();
+            var note = $("#note").val().trim();
+            if (contactEmail == '邮箱(Email)') {
+                $("#errorInfo").html("请填写您的邮箱，谢谢！");
+                $("#contactEmail").focus();
+                return;
+            } else {
+                $("#errorInfo").html("");
+            }
+            var url = "/Home/ajaxSubmitContactus";
+            var data = { 'contactName': "" + contactName + "", 'contactEmail': "" + contactEmail + "", 'mobilePhone': "" + mobilephone + "", 'note': "" + note + "" };
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: data,
+                dataType: "json",
+                success: function (data) {
+                    if (!data.IsSuccess) {
+                        $("#errorInfo").html("提交失败，请跟我们联系！")
+                    } else {
+                        alert("提交成功，谢谢跟我们联系！");
+                        //$("#errorInfo").html("提交成功，谢谢跟我们联系！");
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<!--contact-->
+<div class="contact">
+    <div class="container">
+        <div class="contact-grids">
+            <div class="col-md-8 map">
+                <h3>如何找到我们</h3>
+
+                <style type="text/css">
+                    html, body
+                    {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .iw_poi_title
+                    {
+                        color: #CC5522;
+                        font-size: 14px;
+                        font-weight: bold;
+                        overflow: hidden;
+                        padding-right: 13px;
+                        white-space: nowrap;
+                    }
+
+                    .iw_poi_content
+                    {
+                        font: 12px arial,sans-serif;
+                        overflow: visible;
+                        padding-top: 4px;
+                        white-space: -moz-pre-wrap;
+                        word-wrap: break-word;
+                    }
+                </style>
+                <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+                <!--百度地图容器-->
+                <div style="width: 600px; height: 350px; border: #ccc solid 1px;" id="dituContent"></div>
+                <script type="text/javascript" src="../../Scripts/ContactMap.js"></script>
+            </div>
+            <div class="col-md-4 address">
+                <h3>联系方式</h3>
+                <p class="cnt-p">官方网站：www.dsrman.com</p>
+                <p>QQ：2523754112</p>
+                <p>地址：石家庄新乐市木村乡西曹村开发区</p>
+                <p>电话 : 0311-88505015</p>
+                <p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class=" contact-form">
+            <hr />
+            <form>
+                <div class="col-md-6 form-grids">
+                    @*                    @Html.TextBoxFor(m => m.contactEmail, new { placeholder = "姓名" })
+                    @Html.TextBoxFor(m => m.contactEmail, new { placeholder = "邮箱(Email)" })
+                    @Html.TextBoxFor(m => m.mobilePhone, new { placeholder = "手机号" })*@
+                    <input type="text" id="contactName" class="form-control" value="姓名" required="">
+                    <input type="text" id="contactEmail" class="form-control" value="邮箱(Email)" required="">
+                    <input type="text" id="mobilephone" class="form-control" value="电话" required="">
+                </div>
+                <div class="col-md-6 form-grids">
+                    <textarea type="text" id="note" class="form-control" required="">您有什么想说......</textarea>
+                    <input id="btnsubmit" type="button" class="btn btn-default" value="登 录" />
+                    <span id="errorInfo" style="color: #FF0000; margin-top: 10px"></span>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--//contact-->
