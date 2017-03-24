@@ -1,17 +1,23 @@
-﻿<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/menu.css" />
-<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/reset.css" />
+﻿<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/reset.css" />
 <script type="text/javascript" src="../../Scripts/menu/jquery.movebg.js"></script>
-
+<link rel="stylesheet" type="text/css" href="../../Content/CSS/menu/menu.css" />
+<style type="text/css">
+    .wraper {
+        width: 550px;
+        padding-top: 0px;
+        margin: 0 10px;
+        display: inline-block;
+    }
+</style>
 <span class="Homelogo">
     <a href="/Home/Index">
-        <img alt="logo" src="../../Content/themes/Logo/bo16x16.png" />&nbsp;彩迪电器有限公司</a>
+        <img alt="logo" src="../../Content/themes/Logo/bo16x16.png" />&nbsp;彩迪电器有限公司
+    </a>
 </span>
 <div class="wraper">
     <div class="nav">
         <ul>
-            <li class="nav-item">
-                <a href="/Home/Index" target="_self">网站首页</a>                
-            </li>
+            <li class="nav-item"><a href="/Home/Index" target="_self">网站首页</a></li>
             <li class="nav-item"><a href="/Home/About" target="_self">关于我们</a></li>
             <li class="nav-item">
                 <a href="/Home/Product" target="_self">产品</a>
@@ -28,18 +34,17 @@
     </div>
 </div>
 @if (Request.IsAuthenticated)
-{    
-    <text>欢迎 <b>@Context.User.Identity.Name</b>!
-    <span class="help nomg hov"><a href="/Account/LogOff" rel="nofollow">安全退出</a></span>
-    </text>
+{
+    <span class="help nomg hov">欢迎 @Context.User.Identity.Name <a href="/Account/LogOff" rel="nofollow">退出</a></span>
 }
 else
-{    
+{
     <span class="help nomg hov"><a href="/Account/Register" rel="nofollow">注册</a></span>
-    <span class="help nomg hov"><a href="/Account/LogOn" rel="nofollow">登录</a></span> 
+    <span class="help nomg hov"><a href="/Account/LogOn" rel="nofollow">登录</a></span>
 }
+
 <script type="text/ecmascript">
     $(function () {
-        $(".nav").movebg({ width: 120/*滑块的大小*/, extra: 10/*额外反弹的距离*/, speed: 30/*滑块移动的速度*/, rebound_speed: 30/*滑块反弹的速度*/ });        
+        $(".nav").movebg({ width: 120/*滑块的大小*/, extra: 10/*额外反弹的距离*/, speed: 30/*滑块移动的速度*/, rebound_speed: 30/*滑块反弹的速度*/ });
     })
 </script>

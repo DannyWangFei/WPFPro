@@ -34,3 +34,7 @@ E:\personal\myProject\v1.4\WPFPro\RM.Common\bin\Debug\RM.Common.pdb
 E:\personal\myProject\v1.4\WPFPro\RM.Common\obj\Debug\RM.Common.dll
 E:\personal\myProject\v1.4\WPFPro\RM.Common\obj\Debug\RM.Common.pdb
 E:\personal\myProject\v1.4\WPFPro\RM.Common\obj\Debug\RM.Common.csprojResolveAssemblyReference.cache
+E:\wpf\project\Develop\WPFPro\RM.Common\bin\Debug\RM.Common.dll
+E:\wpf\project\Develop\WPFPro\RM.Common\bin\Debug\RM.Common.pdb
+E:\wpf\project\Develop\WPFPro\RM.Common\obj\Debug\RM.Common.dll
+E:\wpf\project\Develop\WPFPro\RM.Common\obj\Debug\RM.Common.pdb

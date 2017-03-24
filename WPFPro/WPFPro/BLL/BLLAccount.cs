@@ -1,34 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using WPFPro.DAL;
 using WPFPro.Models;
-using System.Reflection;
-using System.Data;
 using System.Web.Security;
-using RM.Common.DotNetCode;
+using WPFPro.Interface;
+using System.Data.SqlClient;
 
 namespace WPFPro.BLL
 {
     public class BLLAccount
     {
         public bool Status { get; set; }
-
-        DALAccount dalaccount = new DALAccount();
-        protected static LogHelper Logger = new LogHelper("BLLAccount");
+        private IUserService _Iuser;
+        public BLLAccount(IUserService Iuser)
+        {
+            this._Iuser = Iuser;
+        }
 
         /// <summary>
         /// 验证注册账号是否有注册过
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public bool validateAccount(string username)
+        public bool validateAccount(string account)
         {
-            if (!string.IsNullOrEmpty(username.Trim()))
+            if (!string.IsNullOrEmpty(account.Trim()))
             {
-                bool result = dalaccount.checkAccount(username.Trim());
-                Status = result;
+                var model = new User();
+                try
+                {
+                    model = _Iuser.GetUserByAccount(account.Trim());
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                if (model == null)
+                    Status = false;
+                else
+                    Status = true;
                 return Status;
             }
             else { return false; }
@@ -39,11 +49,17 @@ namespace WPFPro.BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public bool CreateAccount(RegisterModel model)
+        public bool CreateAccount(User model)
         {
-            bool result = dalaccount.DalCreateAccount(model);
-            Status = result;
-            return Status;
+            try
+            {
+                _Iuser.CreateUser(model);
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
@@ -54,31 +70,77 @@ namespace WPFPro.BLL
         /// <returns></returns>
         public bool checkAccount(string username, string password)
         {
-            bool result = dalaccount.DalCheckAccount(username, password);
-            Status = result;
-            return Status;
+            try
+            {
+                var model = _Iuser.GetUserByAccount(username, password);
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>
         /// 保存账号信息
         /// </summary>
-        /// <param name="accName"></param>
+        /// <param name="userName"></param>
         /// <param name="loginIP"></param>
         /// <param name="logintime"></param>
-        public void SetAuthCookie(string accName, string loginIP, DateTime logintime, bool isRemember)
+        public void SetAuthCookie(string userName, string loginIP, DateTime logintime, bool isRemember)
         {
             DateTime expiration = new DateTime();
-            string data = string.Format("{0},{1},{2}", accName, logintime, loginIP);
+            var userdata = string.Empty;
+            var userId = Guid.Empty;
+            //string userNickName = "游客app";
+            var usermodel = _Iuser.GetUserByAccount(userName);
+            if (usermodel != null)
+            {
+                userId = usermodel.UserId;
+            }
+            userdata = string.Format("{0},{1},{2},{3}", userId, userName, logintime, loginIP);
             expiration = DateTime.Now + FormsAuthentication.Timeout;
             if (isRemember)
             {
                 expiration = DateTime.Now.AddDays(7);
             }
-            FormsAuthenticationTicket tickets = new FormsAuthenticationTicket(1, accName, logintime, expiration, isRemember, data);
+            FormsAuthenticationTicket tickets = new FormsAuthenticationTicket(1, userName, logintime, expiration, isRemember, userdata, FormsAuthentication.FormsCookiePath);
             string strticket = FormsAuthentication.Encrypt(tickets);
             HttpCookie cookies = new HttpCookie(FormsAuthentication.FormsCookieName, strticket);
             cookies.Expires = tickets.Expiration;
             HttpContext.Current.Response.Cookies.Add(cookies);
+        }
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="usermodel"></param>
+        public void ChangePassword(User usermodel)
+        {
+            try
+            {
+                _Iuser.UpdateUser(usermodel);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 根据账户查询用户信息
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
+        public User QueryUserInfo(string account)
+        {
+            try
+            {
+                return _Iuser.GetUserByAccount(account);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
         }
     }
 }

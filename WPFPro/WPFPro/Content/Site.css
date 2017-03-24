@@ -29,43 +29,36 @@ to use a different color start by replacing all instances of
 
 /* HEADINGS   
 ----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6
-{
+h1, h2, h3, h4, h5, h6 {
     font-size: 1.5em;
     color: #000;
 }
 
-h1
-{
+h1 {
     font-size: 2em;
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
-h2
-{
+h2 {
     padding: 0 0 10px 0;
 }
 
-h3
-{
+h3 {
     font-size: 1.2em;
 }
 
-h4
-{
+h4 {
     font-size: 1.1em;
 }
 
-h5, h6
-{
+h5, h6 {
     font-size: 1em;
 }
 
 /* this rule styles <h2> tags that are the 
 first child of the left and right table columns */
-.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
-{
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2 {
     margin-top: 0;
 }
 
@@ -74,14 +67,12 @@ first child of the left and right table columns */
 
 /* you can specify a greater or lesser percentage for the 
 page width. Or, you can specify an exact pixel width. */
-.page
-{
+.page {
     margin-left: auto;
     margin-right: auto;
 }
 
-#header
-{
+#header {
     position: relative;
     margin-bottom: 0px;
     color: #000;
@@ -116,8 +107,7 @@ page width. Or, you can specify an exact pixel width. */
 
 /* TAB MENU   
 ----------------------------------------------------------*/
-ul#menu
-{
+ul#menu {
     border-bottom: 1px #5C87B2 solid;
     padding: 0 0 2px;
     position: relative;
@@ -125,14 +115,12 @@ ul#menu
     text-align: right;
 }
 
-    ul#menu li
-    {
+    ul#menu li {
         display: inline;
         list-style: none;
     }
 
-        ul#menu li#greeting
-        {
+        ul#menu li#greeting {
             padding: 10px 20px;
             font-weight: bold;
             text-decoration: none;
@@ -140,8 +128,7 @@ ul#menu
             color: #fff;
         }
 
-        ul#menu li a
-        {
+        ul#menu li a {
             padding: 10px 20px;
             font-weight: bold;
             text-decoration: none;
@@ -150,20 +137,17 @@ ul#menu
             color: #034af3;
         }
 
-            ul#menu li a:hover
-            {
+            ul#menu li a:hover {
                 background-color: #fff;
                 text-decoration: none;
             }
 
-            ul#menu li a:active
-            {
+            ul#menu li a:active {
                 background-color: #a6e2a6;
                 text-decoration: none;
             }
 
-        ul#menu li.selected a
-        {
+        ul#menu li.selected a {
             background-color: #fff;
             color: #000;
         }
@@ -216,13 +200,11 @@ input[type="password"] {
 
 /* MISC  
 ----------------------------------------------------------*/
-.clear
-{
+.clear {
     clear: both;
 }
 
-.error
-{
+.error {
     color: Red;
 }
 
@@ -236,29 +218,25 @@ div#title {
     text-align: left;
 }*/
 
-#logindisplay
-{
+#logindisplay {
     font-size: 12px;
     background: #f8f8f8;
     border-bottom: 1px solid #e6e6e6;
     height: 40px;
 }
 
-    #logindisplay a
-    {
+    #logindisplay a {
         color: #201f1f;
         padding: 0;
         text-align: center;
     }
 
-#loginheader
-{
+#loginheader {
     margin: 0 auto;
     width: 1170px;
 }
 
-span.Homelogo
-{
+span.Homelogo {
     display: inline-block;
     height: 40px;
     float: left;
@@ -268,25 +246,20 @@ span.Homelogo
     font-size: 12px;
 }
 
-span.Homelogo a
-{
-    text-align: center;
-    display: inline-block;
-}
+    span.Homelogo a {
+        text-align: center;
+        display: inline-block;
+    }
 
-span.hov
-{
+span.hov {
     padding: 0;
-    
 }
 
-span.nomg
-{
+span.nomg {
     margin-left: 0;
 }
 
-span.help
-{
+span.help {
     display: inline-block;
     height: 40px;
     float: right;
@@ -298,19 +271,16 @@ span.help
     border-left: 1px solid #e6e6e6;
 }
 
-span.hov a
-{
+span.hov a {
     display: inline-block;
     padding: 0 15px;
 }
 
-span.help a
-{
+span.help a {
     color: #5c5c5c;
 }
 
-a
-{
+a {
     text-decoration: none;
 }
 
@@ -355,18 +325,15 @@ a
 
 /* Styles for editor and display helpers
 ----------------------------------------------------------*/
-.display-label, .editor-label
-{
+.display-label, .editor-label {
     margin: 1em 0 0 0;
 }
 
-.display-field, .editor-field
-{
+.display-field, .editor-field {
     margin: 0.5em 0 0 0;
 }
 
-.inputcss
-{
+.inputcss {
     width: 260px;
     height: 30px;
     margin-top: 5px;
@@ -384,8 +351,7 @@ a
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.veryCodeinput
-{
+.veryCodeinput {
     width: 100px;
     height: 30px;
     margin-top: 5px;
@@ -403,13 +369,11 @@ a
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
-.veriyCode
-{
+.veriyCode {
     float: left;
 }
 /*验证码图片*/
-.validateCode
-{
+.validateCode {
     width: 85px;
     height: 30px;
     line-height: 45px;
@@ -428,8 +392,7 @@ a
     width: 6em;
 }*/
 /*-------注册页面css样式-----------------------------------------------------------------*/
-.register-left
-{
+.register-left {
     padding-left: 45px;
     width: 50%;
     border-right: 1px solid #ccc;
@@ -438,8 +401,7 @@ a
     float: left;
 }
 
-.login-left
-{
+.login-left {
     padding-left: 45px;
     width: 50%;
     border-right: 1px solid #ccc;
@@ -448,13 +410,13 @@ a
     float: left;
 }
 
-.validateCSS
-{
+.validateCSS {
     color: Red;
     display: none;
     font-size: 8px;
 }
-
-
-
 /*-------注册页面css样式-----------------------------------------------------------------*/
+.col-with-01 {
+    margin-left: 50%;
+    width: 100px;
+}

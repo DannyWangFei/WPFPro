@@ -71,8 +71,8 @@
             <div class="page" style="width: 340px; height: 200px; margin: 45px auto">
                 注册
                 <div class="editor-field">
-                    @Html.TextBoxFor(m => m.UserName, new { @class = "inputcss", placeholder = "邮箱" })
-                    @Html.ValidationMessageFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.Account, new { @class = "inputcss", placeholder = "邮箱" })
+                    @Html.ValidationMessageFor(m => m.Account)
                     <span style="color: Red">*</span>&nbsp;<span id="UsernameErrorinfo" class="validateCSS"></span>
                 </div>
                 <div class="editor-field">

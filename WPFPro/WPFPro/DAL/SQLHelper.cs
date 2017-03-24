@@ -12,7 +12,7 @@ namespace WPFPro.DAL
 {
     public class SQLHelper
     {
-        public static readonly string ConnectionTemp = ConfigurationManager.ConnectionStrings["myConn"].ConnectionString;
+        public static readonly string ConnectionTemp = ConfigurationManager.ConnectionStrings["ConnectionStrings"].ConnectionString;
 
         private SqlConnection CreateConnection()
         {
@@ -305,20 +305,14 @@ namespace WPFPro.DAL
                         foreach (DataTable dt in ds.Tables)
                         {
                             bcp.DestinationTableName = dt.TableName;
-                            //LogHelper.Tracke.DebugFormat("芒果Pro整合Windows Service-基本表数据{0}写入中转表,共{1}行", bcp.DestinationTableName, dt.Rows.Count);
-                            //if (dt.TableName.ToLower() == "app")
-                            //{
-                            //    dt.Columns.Remove("RTB_WinPrice");
-                            //    dt.Columns.Remove("TableFloorPrice");
-                            //}
+                            
                             if (dt.Rows.Count > 0)
                             {
                                 DataColumn col = new DataColumn("SyncDate", typeof(DateTime));
                                 col.DefaultValue = SyncDate;
                                 dt.Columns.Add(col);
                                 bcp.WriteToServer(dt);
-                            }
-                            //LogHelper.Tracke.DebugFormat("复制“" + bcp.DestinationTableName + "”结束");
+                            }                            
                         }
                         sqlTrans.Commit();
                         bcp.Close();
@@ -331,12 +325,8 @@ namespace WPFPro.DAL
                         {
                             sqlTrans.Rollback();
                             conn.Close();
-                        }
-                        //LogHelper.Tracke.Error("芒果Pro整合Windows Service-基本表数据写入中转表失败，全部回滚。 错误描述：", ex);
-                        ////发送邮件
-                        //throw new Exception("芒果Pro整合Windows Service-基本表数据写入中转表失败，全部回滚。 错误描述：" + ex.ToString());
+                        }                        
                         return false;
-
                     }
                 }
             }

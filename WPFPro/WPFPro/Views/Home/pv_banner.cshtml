@@ -1,29 +1,10 @@
-﻿@*<link href="../../Content/CSS/owl.carousel.css" type="text/css" rel="stylesheet" />*@
-
-@*<script type="text/javascript">
-        $(function () {
-            $('#owl-demo').owlCarousel({
-                items: 1,
-                navigation: true,
-                navigationText: ["上一个", "下一个"],
-                autoPlay: true,
-                stopOnHover: true
-            }).hover(function () {
-                $('.owl-buttons').show();
-            }, function () {
-                $('.owl-buttons').hide();
-            });
-        });
-    </script>*@
-
-<div class="top-nav">
+﻿<div class="top-nav">
     <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
         <h3>Menu</h3>
         @Html.ActionLink("首页", "Index", "Home")
         @Html.ActionLink("关于我们", "About", "Home")
         @Html.ActionLink("产品", "Product", "Home")
         @Html.ActionLink("联系我们", "Contactus", "Home")
-        <a href="typo.html">Typo</a>
     </nav>
     <div class="main buttonset">
         <button id="showRightPush">
@@ -31,79 +12,43 @@
         </button>
     </div>
 </div>
-<div class="main">
-    <div class="mianc">
-        <style>
-            .ck-slide {
-                width: 1170px;
-                height: 320px;
-                margin: 0 auto;
-            }
-
-                .ck-slide ul.ck-slide-wrapper {
-                    height: 320px;
-                }
-        </style>
-        <div class="ck-slide">
-            <div class="ck-slide-dir">
-                <ul class="ck-slide-wrapper" style="width: 3500px; margin-left: 0px;">
-                    <li style="float: left; position: relative; margin-left: 0px;">
-                        <a href="javascript:"><img src="@Url.Content("~/Content/banner/123.jpg")" alt=""></a>
-                    </li>
-                    <li style="float: left; position: relative; margin-left: 0px;">
-                        <a href="javascript:"><img src="@Url.Content("~/Content/banner/2.jpg")" alt=""></a>
-                    </li>
-                    <li style="float: left; position: relative; margin-left: 0px;">
-                        <a href="javascript:"><img src="@Url.Content("~/Content/banner/3.jpg")" alt=""></a>
-                    </li>
-                    <li style="float: left; position: relative; margin-left: 0px;">
-                        <a href="javascript:"><img src="@Url.Content("~/Content/banner/4.jpg")" alt=""></a>
-                    </li>
-                    <li style="float: left; position: relative; margin-left: 0px;">
-                        <a href="javascript:"><img src="@Url.Content("~/Content/banner/5.jpg")" alt=""></a>
-                    </li>
-                </ul>
+<div style="width:1187px; height: 320px; margin: 0 auto;">
+    <div id="myCarousel" class="carousel slide">
+        <!-- 轮播（Carousel）指标 -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0"
+                class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- 轮播（Carousel）项目 -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="javascript:"><img src="@Url.Content("~/Content/banner/banner1.jpg")" alt=""></a>
             </div>
-            <a href="javascript:;" class="ctrl-slide ck-prev" style="opacity: 0.6;">上一张</a>
-            <a href="javascript:;" class="ctrl-slide ck-next" style="opacity: 0.6;">下一张</a>
-            <div class="ck-slidebox" style="margin-left: -54px;">
-                <div class="slideWrap">
-                    <ul class="dot-wrap">
-                        <li class="current"><em>1</em></li>
-                        <li class=""><em>2</em></li>
-                        <li class=""><em>3</em></li>
-                        <li class=""><em>4</em></li>
-                        <li class=""><em>5</em></li>
-                    </ul>
-                </div>
+            <div class="item">
+                <a href="javascript:"><img src="@Url.Content("~/Content/banner/banner2.jpg")" alt=""></a>
+            </div>
+            <div class="item">
+                <a href="javascript:"><img src="@Url.Content("~/Content/banner/banner3.jpg")" alt=""></a>
             </div>
         </div>
+        <!-- 轮播（Carousel）导航 -->
+        <a class="carousel-control left lunbo" href="#myCarousel"
+           data-slide="prev"><img src="~/Content/themes/bodyImage/lunbo/bg17.png" /></a>
+        <a class="carousel-control right lunbo" href="#myCarousel"
+           data-slide="next"><img src="~/Content/themes/bodyImage/lunbo/bg18.png" /></a>
     </div>
 </div>
-<script src="../../Scripts/classie.js"></script>
-<script>
-    $('.ck-slide').ckSlide({
-        autoPlay: true,//默认为不自动播放，需要时请以此设置
-        dir: 'x',//默认效果淡隐淡出，x为水平移动，y 为垂直滚动
-        interval: 3000//默认间隔2000毫秒
-
-    });
-</script>
-<script>
-    var menuRight = document.getElementById('cbp-spmenu-s2'),
-    showRightPush = document.getElementById('showRightPush'),
-    body = document.body;
-
-    showRightPush.onclick = function () {
-        classie.toggle(this, 'active');
-        classie.toggle(body, 'cbp-spmenu-push-toleft');
-        classie.toggle(menuRight, 'cbp-spmenu-open');
-        disableOther('showRightPush');
-    };
-
-    function disableOther(button) {
-        if (button !== 'showRightPush') {
-            classie.toggle(showRightPush, 'disabled');
-        }
+<style type="text/css">
+    .lunbo {
+        margin-top: 120px;
     }
+</style>
+<script>
+    $(function () {
+        $('#myCarousel').carousel({
+            internal: 2000
+        });
+    });
 </script>

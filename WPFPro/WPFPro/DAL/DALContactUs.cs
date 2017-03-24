@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using RM.Common.DotNetCode;
 using WPFPro.Models;
 
 namespace WPFPro.DAL
@@ -12,7 +8,7 @@ namespace WPFPro.DAL
     public class DALContactUs
     {
         SQLHelper helper = new SQLHelper();
-        protected static LogHelper Logger = new LogHelper("DALContactUs");
+        //protected static LogHelper Logger = new LogHelper("DALContactUs");
 
         public bool InsertContactus(Contactus contact)
         {
@@ -40,7 +36,7 @@ namespace WPFPro.DAL
             {
                 result = false;
                 string message = string.Format("执行方法{0},出错时间{1},error{2}", "InsertContactus", DateTime.Now, ex.Message);
-                Logger.WriteLog(message);
+                //Logger.WriteLog(message);
             }
             return result;
         }

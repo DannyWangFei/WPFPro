@@ -1,21 +1,11 @@
-.wraper
-{
-    width: 860px;
-    padding-top: 0px;
-    margin: 0 10px;
-    display: inline-block;
-}
-
-.nav
-{
+.nav {
     position: relative;
     width: 100%;
     height: 40px;
     overflow: visible;
 }
 
-.nav-item
-{
+.nav-item {
     position: relative;
     float: left;
     width: 120px;
@@ -26,20 +16,17 @@
     z-index: 1;
 }
 
-    .nav-item a
-    {
+    .nav-item a {
         display: block;
         height: 40px;
         color: #fff;
     }
 
-        .nav-item a:hover
-        {
+        .nav-item a:hover {
             color: #fff;
         }
 
-.move-bg
-{
+.move-bg {
     display: none;
     position: absolute;
     left: 0;
@@ -50,19 +37,16 @@
     z-index: 0;
 }
 
-.nav-item ul
-{
+.nav-item ul {
     position: relative;
     display: none;
 }
 
-    .nav-item ul li
-    {
+    .nav-item ul li {
         float: none;
     }
 
-        .nav-item ul li a
-        {
+        .nav-item ul li a {
             border-right: none;
             vertical-align: central;
             text-align: center;
@@ -70,14 +54,12 @@
             border-top: 1px dotted #ccc;
             background: #f8f8f8;
         }
-            /*3DA9DE*/
-            .nav ul li ul li a:hover
-            {
-                background-color: #3DA9DE;
-            }
+/*3DA9DE*/
+.nav ul li ul li a:hover {
+    background-color: #3DA9DE;
+}
 
-.nav ul li:hover ul
-{
+.nav ul li:hover ul {
     display: block;
 }
 
