@@ -230,6 +230,7 @@
     <Compile Include="Common\DESEncrypt.cs" />
     <Compile Include="Common\Md5Helper.cs" />
     <Compile Include="Common\RequestHelper.cs" />
+    <Compile Include="Common\SMTPManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\DALAccountContext.cs" />
@@ -403,6 +404,7 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\wpfpro.pubxml" />
     <Content Include="Views\Account\ForgetPassword.cshtml" />
+    <Content Include="Views\Account\ForgetPasswordResult.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -6,6 +6,7 @@ using WPFPro.Util;
 using WPFPro.BLL;
 using WPFPro.Common;
 using WPFPro.Interface;
+using System.Configuration;
 
 namespace WPFPro.Controllers
 {
@@ -81,7 +82,7 @@ namespace WPFPro.Controllers
         // **************************************
         // URL: /Account/Register
         // **************************************
-        
+
         public ActionResult Register()
         {
             return View();
@@ -135,8 +136,9 @@ namespace WPFPro.Controllers
         private void SendEmail(string Email)
         {
             string Subject = "激活邮件";
-            string linkUrl = string.Format("http://wwww.caidi888.com/ActiveAccount/em={0}", Email);
-            string body = "欢迎您注册荣鼎西曹网站，我们将对会对您提供全天的产品服务，谢谢您的支持！<br/>请点击该链接激活您的账户:{0}<br/>如无法进行激活请联系我们，电话:0311-88505015，QQ：2523754112";
+            //string linkUrl = ConfigurationManager.AppSettings["Domain"].ToString() + string.Format("ActiveAccount/em={0}", Email);
+            string body = string.Format("<div>请您激活您的账号，我们将对会对您提供全天的产品服务，谢谢您的支持！<br/><a href=\"ActiveAccount?email = {0}\"target=\"_blank\"style=\"text-decoration-style:none\">请点击该链接激活您的账户</a><br/>如无法进行激活请联系我们，电话:0311-88505015，QQ：2523754112</div>", Email);
+            //string.Format()
             //SMTPManager.MailSending(Email, Subject, body, "");
         }
 
@@ -201,14 +203,39 @@ namespace WPFPro.Controllers
         {
             return View();
         }
-        
+
         /// <summary>
         /// 忘记密码
         /// </summary>
         /// <returns></returns>
         public ActionResult ForgetPassword()
         {
+            //var email = Request.QueryString["email"].ToString();
             return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult ForgetPasswordNext(string email)
+        {
+            var subject = "账号激活邮件";
+            string body = string.Format("<div>请您激活您的账号，我们将对会对您提供全天的产品服务，谢谢您的支持！<br/><a href=\"ActiveAccount?email = {0}\"target=\"_blank\"style=\"text-decoration-style:none\">请点击该链接激活您的账户</a><br/>如无法进行激活请联系我们，电话:0311-88505015，QQ：2523754112</div>", Email);
+            SMTPManager.MailSending(email, subject, body, "");
+
+            return View();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public ActionResult ActiveAccount(string email)
+        {
+            return View("LogOn");
         }
 
         /// <summary>
