@@ -68,7 +68,7 @@ namespace WPFPro.DataService
         {
             using (var db = new DALAccountContext())
             {
-                db.User.Add(usermodel);
+                db.Entry<User>(usermodel).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
             }
         }

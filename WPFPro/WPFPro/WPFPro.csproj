@@ -405,6 +405,7 @@
     <None Include="Properties\PublishProfiles\wpfpro.pubxml" />
     <Content Include="Views\Account\ForgetPassword.cshtml" />
     <Content Include="Views\Account\ForgetPasswordResult.cshtml" />
+    <Content Include="Views\Account\WaitingPage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

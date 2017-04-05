@@ -142,5 +142,21 @@ namespace WPFPro.BLL
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 更新账户信息
+        /// </summary>
+        /// <param name="user"></param>
+        public void UpdateAccount(User user)
+        {
+            try
+            {
+                _Iuser.UpdateUser(user);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

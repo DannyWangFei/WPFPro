@@ -55,9 +55,10 @@ namespace WPFPro.Common
                 mail.Attachments.Add(new Attachment(File_Path));//发送邮件中添加附件
                 mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnSuccess;//获取发送通知成功状态
             }
-            SmtpClient client = new SmtpClient();
+            SmtpClient client = new SmtpClient();            
             client.Host = MailHost;
-            client.Port = 25;//端口
+            client.Port = 587;//端口
+            client.EnableSsl = true;
             client.UseDefaultCredentials = false;            
             client.Credentials = new NetworkCredential(MailUser, MailPwd);//邮件账号密码
             client.DeliveryMethod = SmtpDeliveryMethod.Network;

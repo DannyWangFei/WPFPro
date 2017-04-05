@@ -184,10 +184,10 @@ E:\wpf\project\websit\WPFPro\WPFPro\bin\System.Web.WebPages.Deployment.xml
 E:\wpf\project\websit\WPFPro\WPFPro\bin\System.Web.WebPages.Razor.xml
 E:\wpf\project\websit\WPFPro\WPFPro\obj\Debug\WPFPro.dll
 E:\wpf\project\websit\WPFPro\WPFPro\obj\Debug\WPFPro.pdb
-E:\wpf\project\websit\WPFPro\WPFPro\obj\Debug\WPFPro.csprojResolveAssemblyReference.cache
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.Helpers.resources.dll
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.Mvc.resources.dll
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.Razor.resources.dll
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.WebPages.resources.dll
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 E:\wpf\project\websit\WPFPro\WPFPro\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\wpf\project\websit\WPFPro\WPFPro\obj\Debug\WPFPro.csprojResolveAssemblyReference.cache
