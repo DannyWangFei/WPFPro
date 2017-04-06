@@ -50,6 +50,10 @@ build/
 [Bb]in/
 [Oo]bj/
 packages/
+bin/
+obj/
+Debug/
+Release/
 
 
 # MSTest test Results

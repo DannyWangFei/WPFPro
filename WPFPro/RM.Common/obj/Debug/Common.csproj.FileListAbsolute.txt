@@ -1,4 +1,0 @@
-E:\project\WPFPro\RM.Common\bin\Debug\Common.dll
-E:\project\WPFPro\RM.Common\bin\Debug\Common.pdb
-E:\project\WPFPro\RM.Common\obj\Debug\Common.dll
-E:\project\WPFPro\RM.Common\obj\Debug\Common.pdb

@@ -1,4 +1,0 @@
-E:\personal\myProject\v1.4\WPFPro\RM.Common\bin\Release\RM.Common.dll
-E:\personal\myProject\v1.4\WPFPro\RM.Common\bin\Release\RM.Common.pdb
-E:\personal\myProject\v1.4\WPFPro\RM.Common\obj\Release\RM.Common.dll
-E:\personal\myProject\v1.4\WPFPro\RM.Common\obj\Release\RM.Common.pdb
